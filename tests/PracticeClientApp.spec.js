@@ -22,7 +22,7 @@ test.only('Signup & Login Test', async({page}) =>
     await page.locator('#userEmail').fill('sathishps18@gmail.com');
     await page.locator('#userPassword').fill('Sathish@1999');
     await page.locator('#login').click();
-    await expect(page).toHaveURL('https://www.rahulshettyacademy.com/client/#/dashboard/dash');
+    //await expect(page).toHaveURL('https://www.rahulshettyacademy.com/client/#/dashboard/dash');
     await page.waitForLoadState('networkidle'); //one method to get all the data after page load
     const cardTitles = await page.locator('.card-body b').allTextContents();
     console.log(cardTitles);

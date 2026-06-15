@@ -33,7 +33,7 @@ test('Browser Context Playwright Test', async ({browser}) =>
         });
 
 // Assigning locator to a variable and then executing it
-test.only('Page Playwright Test 03', async ({page}) =>
+test('Page Playwright Test 03', async ({page}) =>
     {
         await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
         const userName = page.locator('#username');

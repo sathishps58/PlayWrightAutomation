@@ -16,7 +16,6 @@ test.only('Signup & Login Test', async({page}) =>
     await page.locator('#confirmPassword').fill('Sathish@1999');
     await page.locator("[type='checkbox']").check();
     await page.locator('#login').click();
-    //console.log(await page.locator('.headcolor').textContent());
     //await page.getByText('Login').click();
     //await expect(page).toHaveURL('https://www.rahulshettyacademy.com/client/#/auth/login');
     await page.locator('#userEmail').fill('sathishps18@gmail.com');

@@ -47,7 +47,7 @@ test('Page Playwright Test 03', async ({page}) =>
         console.log(await cardTitles.nth(1).textContent());
     });
 
-    test.only('Child window handling', async({browser}) =>
+    test('Child window handling', async({browser}) =>
     {
         const context = await browser.newContext();
         const page = await context.newPage();

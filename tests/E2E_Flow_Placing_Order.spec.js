@@ -53,17 +53,17 @@ test.only('Website Client App', async({page}) => {
 
 const { test, expect } = require('@playwright/test');
  
-test.only('@Webst Client App login', async ({ page }) => {
+test('@Webst Client App login', async ({ page }) => {
   //js file- Login js, DashboardPage
-  const email = "anshika@gmail.com";
+  //const email = "anshika@gmail.com";
   const productName = 'ZARA COAT 3';
   const products = page.locator(".card-body");
-  await page.goto("https://rahulshettyacademy.com/client");
-  await page.locator("#userEmail").fill(email);
-  await page.locator("#userPassword").fill("Iamking@000");
-  await page.locator("[value='Login']").click();
+  await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
+  await page.locator("#userEmail").fill('sathishps18@gmail.com');
+  await page.locator("#userPassword").fill('sathish@1999');
+  await page.locator('#login').click();
   await page.waitForLoadState('networkidle');
-  await page.locator(".card-body b").first().waitFor();
+  await page.locator('.card-body b').first().waitFor();
   const titles = await page.locator(".card-body b").allTextContents();
   console.log(titles);
   const count = await products.count();
@@ -85,7 +85,7 @@ test.only('@Webst Client App login', async ({ page }) => {
  
  await page.getByPlaceholder('Select Country').pressSequentially("ind", { delay: 150 })
   const dropdown = page.locator(".ta-results");
-  //await dropdown.waitFor();
+  await dropdown.waitFor();
   const optionsCount = await dropdown.locator("button").count();
   for (let i = 0; i < optionsCount; ++i) {
      const text = await dropdown.locator("button").nth(i).textContent();
@@ -99,7 +99,7 @@ test.only('@Webst Client App login', async ({ page }) => {
   await page.locator(".action__submit").click();
   console.log('Submitted Order');
   await page.waitForLoadState('domcontentloaded');
-  //await expect(page.locator(".hero-primary")).toHaveText(" Thankyou for the order. ");
+  await expect(page.locator(".hero-primary")).toHaveText(" Thankyou for the order. ");
   const orderId = await page.locator("label.ng-star-inserted").textContent();
   console.log(orderId);
  

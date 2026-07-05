@@ -53,17 +53,21 @@ test.only('Website Client App', async({page}) => {
 
 const { test, expect } = require('@playwright/test');
  
-test('@Webst Client App login', async ({ page }) => {
+test('@Webst Client App login', async ({browser}) => {
+   const context = await browser.newContext();
+   const page = await context.newPage();
   //js file- Login js, DashboardPage
-  //const email = "anshika@gmail.com";
+  const email = "sathishps18@gmail.com";
   const productName = 'ZARA COAT 3';
   const products = page.locator(".card-body");
   await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
-  await page.locator("#userEmail").fill('sathishps18@gmail.com');
-  await page.locator("#userPassword").fill('sathish@1999');
-  await page.locator('#login').click();
-  await page.waitForLoadState('networkidle');
-  await page.locator('.card-body b').first().waitFor();
+  await page.locator("#userEmail").fill(email);
+  await page.locator("#userPassword").fill('Sathish@1999');
+  await page.locator('[value="Login"]').click();
+  console.log(await page.locator('[role="alert"], .toast-message').allTextContents());
+  //await page.waitForLoadState('networkidle');
+  //await page.locator('.card-body b').first().waitFor();
+  await expect(page.locator('.card-body b').first()).toBeVisible();
   const titles = await page.locator(".card-body b").allTextContents();
   console.log(titles);
   const count = await products.count();

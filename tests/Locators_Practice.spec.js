@@ -1,6 +1,6 @@
 const {test, expect} = require('@playwright/test');
 
-test.only('Additional Locators Practice', async ({ page }) => {
+test('Additional Locators Practice', async ({ page }) => {
 
     await page.goto('https://rahulshettyacademy.com/angularpractice/');
     await page.locator("input.form-control[name='name']").fill('Sathish');
@@ -11,5 +11,6 @@ test.only('Additional Locators Practice', async ({ page }) => {
     await page.getByLabel('Employed').check();
     await page.getByRole('button', {name: 'submit'}).click();
     await page.getByText('Success! The Form has been submitted successfully!.').isVisible();
+    //await page.locator("app-card").filter({hasText: 'Nokia Edge'}).getByRole("button").click();
 
 });

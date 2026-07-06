@@ -2,7 +2,7 @@ const {test, expect} = require ('@playwright/test');
 
 test('Signup & Login Test', async({page}) =>
 {
-    await page.goto('https://www.rahulshettyacademy.com/client/');
+    await page.goto('https://www.rahulshettyacademy.com/client');
     await page.locator('text=Register here').click();
     await expect(page).toHaveURL('https://www.rahulshettyacademy.com/client/#/auth/register');
     console.log(await page.title());

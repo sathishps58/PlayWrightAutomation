@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
  
-test.only('@Webst Client App login', async ({page}) => {
+test('@Webst Client App login', async ({page}) => {
   const productName = 'ZARA COAT 3';
   const products = page.locator(".card-body");
   await page.goto("https://rahulshettyacademy.com/client");

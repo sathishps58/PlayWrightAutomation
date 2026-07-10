@@ -24,7 +24,7 @@ export default defineConfig({
     browserName: 'chromium',
     headless: true,
     screenshot: 'on',
-    trace: 'on'
+    trace: 'retain-on-failure', //for enabling Traces for all the tests => Enter on
 
   },
   

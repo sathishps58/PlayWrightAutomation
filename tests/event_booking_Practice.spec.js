@@ -1,6 +1,6 @@
 const {test, expect} = require ('@playwright/test')
 
-test.only('event booking practice website', async ({page}) => {
+test('event booking practice website', async ({page}) => {
 
 /* creating a User Account for logging in
 await page.goto("https://eventhub.rahulshettyacademy.com/login");
